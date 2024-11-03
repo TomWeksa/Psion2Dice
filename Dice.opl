@@ -1,0 +1,47 @@
+DNDDICE:
+    LOCAL nDice%, nSides%, i%, total%, roll%, choice%
+    
+    MAINLOOP::
+        CLS
+        PRINT "Select Dice Type:"
+        choice% = MENU("d20,d12,d10,d8,d6,d4,Exit")
+
+        IF choice% = 7
+            GOTO ENDPROG::  REM Go to the end of the program if "Exit" is selected
+        ENDIF
+
+        IF choice% = 1
+            nSides% = 20
+        ELSEIF choice% = 2
+            nSides% = 12
+        ELSEIF choice% = 3
+            nSides% = 10
+        ELSEIF choice% = 4
+            nSides% = 8
+        ELSEIF choice% = 5
+            nSides% = 6
+        ELSE
+            nSides% = 4
+        ENDIF
+
+        PRINT "Number of Dice: "
+        INPUT nDice%
+
+        total% = 0
+        i% = 1
+
+        DO
+            roll% = INT(RND * nSides%) + 1
+            total% = total% + roll%
+            i% = i% + 1
+        UNTIL i% > nDice%
+
+        PRINT "Total Roll: "; total%
+        PRINT "Press any key to"
+        PRINT  "roll again."
+        GET
+
+        GOTO MAINLOOP::  REM Return to the start of the program
+
+    ENDPROG::
+       REM  PRINT "Thank you for using the dice roller!"
