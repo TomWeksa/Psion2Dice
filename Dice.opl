@@ -44,4 +44,3 @@ DNDDICE:
         GOTO MAINLOOP::  REM Return to the start of the program
 
     ENDPROG::
-       REM  PRINT "Thank you for using the dice roller!"
